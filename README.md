@@ -13,6 +13,7 @@ Szybkie, wielowątkowe narzędzie OSINT do pasywnego i aktywnego rekonesansu sub
 Projekt wykorzystuje nowoczesny manager pakietów `uv`.
 
 ```bash
-git clone https://github.com/Monio21/Secon-Spider
+git clone https://github.com/Monio21/Recon-Spider
 cd recon-spider
 uv sync
+
