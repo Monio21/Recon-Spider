@@ -2,7 +2,7 @@ import requests
 import argparse
 import concurrent.futures
 
-#test
+
 def get_subdomains(domain):
     url = f"https://crt.sh/?q=%.{domain}&output=json"
     try:
