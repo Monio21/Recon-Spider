@@ -1,19 +1,37 @@
 # 🕷️ ReconSpider
 
-Szybkie, wielowątkowe narzędzie OSINT do pasywnego i aktywnego rekonesansu subdomen.
+![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-stable-brightgreen)
 
-## 🚀 Funkcje
-- **Pasywny Rekonesans:** Pobiera subdomeny z certyfikatów SSL (crt.sh) bez dotykania celu.
-- **Wielowątkowość:** Szybka weryfikacja (Active Recon) statusów HTTP przy użyciu `ThreadPoolExecutor`.
-- **Raportowanie:** Generuje wyniki w formacie `.csv` (gotowe do importu do Excela).
-- **Smart Filtering:** Odsiewa nieaktywne hosty.
+**ReconSpider** to lekkie, zorientowane na wydajność narzędzie OSINT służące do mapowania powierzchni ataku (**Attack Surface Mapping**).
 
-## 🛠️ Instalacja (używając uv)
+Narzędzie automatyzuje proces wstępnego rekonesansu, łącząc pasywne zbieranie danych (CT Logs) z aktywnym fingerprintingiem usług HTTP. Zaprojektowane z myślą o testach penetracyjnych (Red Teaming) oraz programach Bug Bounty.
 
-Projekt wykorzystuje nowoczesny manager pakietów `uv`.
+---
 
+## ⚡ Kluczowe Funkcjonalności
+
+### 🔍 Discovery & Enumeration
+* **Passive Recon (`-d`):** Integracja z API `crt.sh` w celu identyfikacji subdomen na podstawie historii certyfikatów SSL/TLS. Zerowy ślad w logach celu.
+* **Active Recon (`-f`):** Obsługa zewnętrznych list słownikowych (np. SecLists) umożliwiająca wykrycie zasobów "shadow IT" i domen deweloperskich nieobecnych w publicznych rejestrach.
+
+### 🛡️ Evasion & Fingerprinting
+* **WAF Evasion:** Implementacja rotacji `User-Agent` (Randomized Header Injection) w celu omijania prostych reguł blokujących boty.
+* **HTTP Fingerprinting:** Automatyczna ekstrakcja nagłówków i tytułów stron (`<title>`), pozwalająca na szybką identyfikację paneli administracyjnych, błędów konfiguracji czy zapomnianych środowisk testowych.
+
+### 🚀 Performance
+* **Concurrency:** Wykorzystanie `concurrent.futures.ThreadPoolExecutor` do wielowątkowego przetwarzania żądań, co pozwala na skanowanie setek hostów w sekundy.
+* **Smart Parsing:** Inteligentna obsługa błędów połączeń i timeoutów.
+
+---
+
+## 🛠️ Instalacja
+
+Projekt wspiera nowoczesny manager pakietów `uv` dla szybkiej i izolowanej instalacji środowiska.
+
+### Metoda 1: Używając uv (Zalecane)
 ```bash
-git clone https://github.com/Monio21/Recon-Spider
-cd recon-spider
+git clone [https://github.com/Monio21/Recon-Spider.git](https://github.com/Monio21/Recon-Spider.git)
+cd Recon-Spider
 uv sync
-
