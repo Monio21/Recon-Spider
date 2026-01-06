@@ -32,6 +32,7 @@ Projekt wspiera nowoczesny manager pakietów `uv` dla szybkiej i izolowanej inst
 
 ### Metoda 1: Używając uv (Zalecane)
 ```bash
-git clone [https://github.com/Monio21/Recon-Spider.git](https://github.com/Monio21/Recon-Spider.git)
+git clone https://github.com/Monio21/Recon-Spider
 cd Recon-Spider
 uv sync
+
